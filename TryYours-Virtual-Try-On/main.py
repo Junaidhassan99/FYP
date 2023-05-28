@@ -49,7 +49,7 @@ if __name__ == '__main__':
     img_seg=np.where(img_seg==0,215,img_seg)
     cv2.imwrite("./seg_img.png",img_seg)
     img=cv2.resize(img_seg,(768,1024))
-    cv2.imwrite('./HR-VITON-main/test/test/image/00001_00.jpg',img)
+    cv2.imwrite('./HR-VITON-main/test/test/image/00001_00.jpg',ori_img)
 
     # Generate grayscale semantic segmentation image
     terminnal_command ="python get_seg_grayscale.py"
@@ -67,7 +67,7 @@ if __name__ == '__main__':
     # Run HR-VITON to generate final image
     print("\nRun HR-VITON to generate final image\n")
     os.chdir("./HR-VITON-main")
-    terminnal_command = "python3 test_generator.py --cuda True --test_name test1 --tocg_checkpoint mtviton.pth --gpu_ids 0 --gen_checkpoint gen.pth --datasetting unpaired --data_list t2.txt --dataroot ./test" 
+    terminnal_command = "python3 test_generator.py --cuda True --test_name test1 --tocg_checkpoint /content/FYP/TryYours-Virtual-Try-On/HR-VITON-main/eval_models/weights/v0.1/mtviton.pth --gpu_ids 0 --gen_checkpoint /content/FYP/TryYours-Virtual-Try-On/HR-VITON-main/eval_models/weights/v0.1/gen.pth --datasetting unpaired --data_list t2.txt --dataroot ./test" 
     os.system(terminnal_command)
 
     # Add Background or Not
