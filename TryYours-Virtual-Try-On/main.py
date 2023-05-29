@@ -49,7 +49,7 @@ if __name__ == '__main__':
     img_seg=np.where(img_seg==0,215,img_seg)
     cv2.imwrite("./seg_img.png",img_seg)
     img=cv2.resize(img_seg,(768,1024))
-    cv2.imwrite('./HR-VITON-main/test/test/image/00001_00.jpg',ori_img)
+    cv2.imwrite('./HR-VITON-main/test/test/image/00001_00.jpg',img)
 
     # Generate grayscale semantic segmentation image
     terminnal_command ="python get_seg_grayscale.py"
